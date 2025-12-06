@@ -49,3 +49,11 @@ def add_book():
     })
 
     print("Book added successfully.")
+def view_books():
+    print("\n--- BOOK LIST ---")
+    if not library:
+        print("Library is empty.")
+        return
+    for i, book in enumerate(library, start=1):
+        status = "Available" if book['is_available'] else "Not available"
+        print(f"{i}. {book['title']} | {book['author']} | {status}")
