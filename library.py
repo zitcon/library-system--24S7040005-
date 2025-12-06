@@ -1,16 +1,12 @@
-# Global list to store data: each book is a dict {'title': '...', 'author': '...', 'is_available': True}
 library = []
 
 def add_book():
-    # Tạm thời để trống, sẽ làm ở Feature 1
     pass
 
 def view_books():
-    # Sẽ làm ở Feature 2
     pass
 
 def search_book():
-    # Sẽ làm ở Feature 3
     pass
 
 def main():
@@ -37,6 +33,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
 def add_book():
     print("\n--- ADD NEW BOOK ---")
     title = input("Enter book title: ")
@@ -49,6 +46,7 @@ def add_book():
     })
 
     print("Book added successfully.")
+
 def view_books():
     print("\n--- BOOK LIST ---")
     if not library:
@@ -57,3 +55,13 @@ def view_books():
     for i, book in enumerate(library, start=1):
         status = "Available" if book['is_available'] else "Not available"
         print(f"{i}. {book['title']} | {book['author']} | {status}")
+        
+def search_book():
+    query = input("Enter keyword: ").lower()
+    found = False
+    for book in library:
+        if query in book["title"].lower():
+            print(f"Found: {book['title']} by {book['author']}")
+            found = True
+    if not found:
+        print("No matching books found.")
