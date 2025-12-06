@@ -37,3 +37,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+def add_book():
+    print("\n--- ADD NEW BOOK ---")
+    title = input("Enter book title: ")
+    author = input("Enter author: ")
+
+    library.append({
+        "title": title,
+        "author": author,
+        "is_available": True
+    })
+
+    print("Book added successfully.")
